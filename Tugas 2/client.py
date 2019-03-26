@@ -14,7 +14,7 @@ while True:
     data1 = data[:7] + "out.jpg" 
     print("ini adalah "+data1)
     if data1:
-        print "File name:", data1
+        print "nama file:", data1
         file_name = data1
 
     f = open(file_name, 'wb')
