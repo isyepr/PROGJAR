@@ -14,15 +14,15 @@ for UDEP in UDP_IP:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        sock.sendto(x, (UDEP, UDP_PORT))
-        print "Sending %s ..." % x
+    sock.sendto(x, (UDEP, UDP_PORT))
+    print "loading %s ..." % x
 
-        f = open(x, "rb")
-        data = f.read()
-        while(data):
-            if(sock.sendto(data, (UDEP, UDP_PORT))):
-		      data = f.read()
+    f = open(x, "rb")
+    data = f.read()
+    while(data):
+        if(sock.sendto(data, (UDEP, UDP_PORT))):
+            f.read()
 		       
-              sock.close()
-              f.close()
-              time.sleep(5)
+            sock.close()
+            f.close()
+            time.sleep(10)
